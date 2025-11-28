@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automatización de Despliegue - RA1</title>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: #0f0f15;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        color: #fff;
+    }
+
+    .card {
+        background: #1a1a25;
+        max-width: 600px;
+        width: 100%;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .card h1 {
+        font-size: 24px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 20px;
+        background: linear-gradient(90deg, #4c4cff, #9c42ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .card p {
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 12px;
+        color: #bbb;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+</head>
+<body>
+
+<div class="card">
+    <h1>Automatización de despliegue - RA1</h1>
+
+    <p>
+        <strong>Profe, no podemos realizar el RA con la página web de nuestro proyecto</strong> debido a que 
+        contiene <strong>PHP</strong> para el funcionamiento de algunas animaciones, <strong>conexión con la base de datos</strong>, 
+        sistema de login, consultas dinámicas, entre otras funcionalidades necesarias para su correcto funcionamiento.
+        <br><br>
+        Debido a estas limitaciones con GitHub Pages, <strong>realizamos esta pequeña página web con puro HTML y CSS</strong>, 
+        demostrando el proceso de despliegue, automatización de pruebas y uso de GitHub Actions sin incluir PHP.
+    </p>
+
+    <footer>
+        Actividad con despliegue en GitHub Pages
+    </footer>
+</div>
+
+</body>
+</html>
+
+
+
