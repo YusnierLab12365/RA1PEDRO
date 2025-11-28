@@ -1,0 +1,57 @@
+name: CI & Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run simple tests (verificar index.html)
+        run: |
+          echo "Comprobando que index.html exista..."
+          if [ -f ./index.html ]; then
+            echo "index.html encontrado "
+          else
+            echo "index.html NO encontrado "
+            exit 1
+          fi
+
+      # (Opcional) aquí podrías agregar validadores HTML / linters
+      - name: Create artifact dir
+        run: |
+          mkdir -p site
+          cp -r index.html site/
+          # copiar otros recursos si los tienes:
+          [ -d css ] && cp -r css site/
+          [ -d assets ] && cp -r assets site/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Download and deploy artifact
+        uses: actions/deploy-pages@v4
